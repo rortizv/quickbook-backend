@@ -11,7 +11,8 @@ class Server {
 
         this.paths = {
             users: '/api/users',
-            auth: '/api/auth'
+            auth: '/api/auth',
+            analyze_document: '/api/analyze-document'
         }
 
         // Connect to DB
@@ -45,6 +46,7 @@ class Server {
     routes() {
         this.app.use(this.paths.users, require('../routes/users'));
         this.app.use(this.paths.auth, require('../routes/auth'));
+        this.app.use(this.paths.analyze_document, require('../routes/azure'));
     }
 
     listen() {
